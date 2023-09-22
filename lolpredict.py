@@ -15,14 +15,13 @@ def lolwin():
     print()
     test_size = 2000
 
+    inputs_train, inputs_test, target_train, target_test = train_test_split(inputs,target,test_size=0.2,random_state=42)
     #train data on test_size data
-    classifier.fit(resample(target,n_samples=test_size), resample(inputs,n_samples=test_size))
+    classifier.fit(inputs_train, target_train)
 
-    results = classifier.predict(inputs[:test_size])
-    print((results == target[:test_size]).mean())
-    print(resample(target,n_samples=10))
-    print(resample(inputs,n_samples=10))
-    # print(np.random.choice(inputs,2000))
+    results = classifier.predict(inputs_test)
+    print((results == target_test).mean())
+
 
 
 if __name__ == '__main__':
