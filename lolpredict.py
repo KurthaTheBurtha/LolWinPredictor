@@ -20,7 +20,7 @@ def lolwin():
     classifier.fit(inputs_train, target_train)
 
     results = classifier.predict(inputs_test)
-    print((results == target_test).mean())
+    print(str(round((results == target_test).mean()*100,2))+'% accuracy')
 
 
 
