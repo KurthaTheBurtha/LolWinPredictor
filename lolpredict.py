@@ -11,7 +11,7 @@ def lolwin():
     target = np.genfromtxt('high_diamond_ranked_10min.csv', delimiter=',', skip_header=1, usecols=[1], dtype=np.int8)
 
     # This is the neural network
-    classifier = MLPClassifier(random_state=0)
+    classifier = MLPClassifier(random_state=0,hidden_layer_sizes=(25,50,10),batch_size=16)
     print()
     test_size = 2000
 
